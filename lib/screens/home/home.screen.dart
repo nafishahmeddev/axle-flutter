@@ -10,12 +10,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _onlines = 0;
-  void _onItemTapped() {
-    setState(() {
-      _onlines+=1;
-    });
-  }
+  //TabController _controller = TabController(length: 4, vsync: this);
   @override
   Widget build(BuildContext context) {
 
@@ -25,7 +20,7 @@ class _HomePageState extends State<HomePage> {
             title: Text(widget.title, style: TextStyle(fontWeight: FontWeight.w300),),
             centerTitle: true,
             bottom: new TabBar(
-              //isScrollable: true,
+              isScrollable: true,
               tabs: [
                 Tab(child: Text("MESSAGES", style: TextStyle(fontWeight: FontWeight.w700, fontSize: 12,),)),
                 Tab(child: Text("ONLINE", style: TextStyle(fontWeight: FontWeight.w700, fontSize: 12),)),
@@ -37,12 +32,9 @@ class _HomePageState extends State<HomePage> {
           body:   TabBarView(
             children: [
               MessagesScreen(),
-              Icon(Icons.directions_transit),
-              Icon(Icons.directions_bike),
-              ElevatedButton(
-                  onPressed: _onItemTapped,
-                  child: Text("UUUU")
-              ),
+              MessagesScreen(),
+              MessagesScreen(),
+              MessagesScreen(),
             ],
           ),
         )
